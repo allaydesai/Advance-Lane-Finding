@@ -1,10 +1,11 @@
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+## Advanced Lane Finding
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 ---
 
-**Advanced Lane Finding Project**
+The goal of this project is to write a software pipeline to identify the lane boundaries in a video. In addition to the code this writeup will provide a detailed explanation of the process used for lane detection. 
+
+**Project Goals**
 
 The goals / steps of this project are the following:
 
@@ -16,6 +17,16 @@ The goals / steps of this project are the following:
 * Determine the curvature of the lane and vehicle position with respect to center.
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
+
+**Project Files**
+
+The repository consists of the following files:
+- Main.ipynb (Notebook containing process breakdown and the pipeline)
+- mtx_dist_pickle.p (Pickle file containing calibration parameters)
+- project_video.mp4 (Video used for lane detection)
+- project_video_output.mp4 (Output video generated with lane detection)
+- README.md (Detailed description of lane detection process)
+
 
 [//]: # (Image References)
 
