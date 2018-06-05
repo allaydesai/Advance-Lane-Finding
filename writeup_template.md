@@ -1,6 +1,5 @@
 ## Advanced Lane Finding
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-
 ---
 
 The goal of this project is to write a software pipeline to identify the lane boundaries in a video. In addition to the code this writeup will provide a detailed explanation of the process used for lane detection. 
@@ -27,7 +26,6 @@ The repository consists of the following files:
 - project_video_output.mp4 (Output video generated with lane detection)
 - README.md (Detailed description of lane detection process)
 
-
 [//]: # (Image References)
 
 [image1]: ./examples/undistort_output.png "Undistorted"
@@ -38,7 +36,11 @@ The repository consists of the following files:
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
-## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
+## Dataset
+
+The images for camera calibration are stored in the folder called `camera_cal`. 
+The images in `test_images` are for testing your pipeline on single frames.
+The video called `project_video.mp4` is the video your pipeline should work well on.
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
