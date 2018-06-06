@@ -21,6 +21,7 @@ The goals / steps of this project are the following:
 
 The repository consists of the following files:
 - Main.ipynb (Notebook containing process breakdown and the pipeline)
+- Main.html (HTML version of the notebook with output cells)
 - mtx_dist_pickle.p (Pickle file containing calibration parameters)
 - project_video.mp4 (Video used for lane detection)
 - project_video_output.mp4 (Output video generated with lane detection)
@@ -46,7 +47,7 @@ Folders:
 - `test_images` : Images for testing your pipeline on single frames
 - `project_video.mp4` : Video the pipline is tested on
 - `output_images` : Results of test images
-
+- `examples` : examples of expected results
 ---
 
 ### Camera Calibration
