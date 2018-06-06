@@ -33,11 +33,11 @@ The repository consists of the following files:
 [image2]: ./examples/threshold_example.png "Binary Image"
 [image3]: ./output_images/02_test_warped_img_0.jpg "Warp Example"
 [image4]: ./examples/histogram.png "Histogram"
-[image5]: ./output_images/04_test_window_img_0.png "Window Example"
+[image5]: ./output_images/04_test_windows_img_0.png "Window Example"
 [image6]: ./output_images/05_test_result_img_0.jpg "Output"
+[image7]: ./examples/Rcurve.PNG "Rcurve Formula"
 [video1]: ./project_video_output.mp4 "Output Video"
-[image7]: ./camera_cal/calibration1.jpg "Calibration"
-[image8]: ./examples/Rcurve.png "Rcurve Formula"
+
 
 ## Dataset
 
@@ -108,13 +108,13 @@ Then I used np.polyfit function to fit my lane lines with a 2nd order polynomial
 
 I implemented this step in cell 15 using the function `find_lane_curvature()` which is defined in cell 3 of my ipython notebook. There is another function called `dist_from_center()` which helps find the deviation from center. The formula I used for this is as follows:
 
-![alt text][image8]
+![alt text][image7]
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 My final pipeline function `pipeline()` can be found in cell 18 of my ipython notebook. Here is an example of my result on a test image:
 
-![alt text][image8]
+![alt text][image6]
 
 
 
