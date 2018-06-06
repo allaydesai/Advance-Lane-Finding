@@ -32,11 +32,12 @@ The repository consists of the following files:
 [image1]: ./output_images/01_test_undist_img_4.jpg "Undistorted"
 [image2]: ./output_images/03_test_thresh_img_4.png "Binary Image"
 [image3]: ./output_images/02_test_warped_img_4.jpg "Warp Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image4]: ./histogram.png "Histogram"
+[image5]: ./output_images/04_test_window_img_4.png "Window Example"
+[image6]: ./output_images/05_test_result_img_4.jpg "Output"
+[video1]: ./project_video_output.mp4 "Output Video"
 [image7]: ./camera_cal/calibration1.jpg "Calibration"
+[image8]: ./Rcurve.png "Rcurve Formula"
 
 ## Dataset
 
@@ -75,9 +76,11 @@ Corrected Image:
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in cell 3 function `combined_threshold()`).  Here's an example of my output for this step.  (note: the image below is a result of performing threshold on a warped image of the original Test Image 3 shown above)
+I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in cell 3 function `combined_threshold()`). My process involves applying the sobel operator along the x-axis followed by V and S color channel selection from HSV and HLS color space. Finally I applied magnitued and directionaly thresholding which resulted in the output binary image. 
 
-![alt text][image3]
+Here's an example of my output for this step.  (note: the image below is a result of performing threshold on a warped image of the original Test Image 3 shown above)
+
+![alt text][image2]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -90,25 +93,34 @@ The code for my perspective transform includes a function called `perspective tr
 | 300, 682      | 460, 720      |
 | 700, 682      | 804, 720      |
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
+I verified that my perspective transform was working as expected by looking at the `src` and `dst` points on a test image and its warped counterpart to verify that the lines appear about parallel in the warped image.
 
-![alt text][image4]
+![alt text][image3]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Once I had the warped image, I took a histogram of pixels, and the peaks helped me locate the starting points of lanes. The histogram of one test image can be seen below:
+
+![alt text][image4]
+
+Then I used np.polyfit function to fit my lane lines with a 2nd order polynomial. Next I used the sliding window approach the code for which can be found in cell 13 of my ipython notebook. This resulted in the following output image:
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I implemented this step in cell 15 using the function `find_lane_curvature()` which is defined in cell 3 of my ipython notebook. There is another function called `dist_from_center()` which helps find the deviation from center. The formula I used for this is as follows:
+
+![alt text][image8]
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+My final pipeline function `pipeline()` can be found in cell 18 of my ipython notebook. Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image8]
+
+
+
 
 ---
 
@@ -116,7 +128,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 ---
 
@@ -124,4 +136,6 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The most challenging part of this project involved tuning the threshold parameters and getting the warping coordinates right such that the lines appear parallel in the warped image.
+
+The pipeline would fail if more than 1 lane appears in an image, for example when changing lanes because it was presumed only two lanes exist for the purpose of this project. 
