@@ -28,16 +28,16 @@ The repository consists of the following files:
 
 [//]: # (Image References)
 
-[image0]: ./test_images/test3.jpg "Test Image 3"
-[image1]: ./output_images/01_test_undist_img_4.jpg "Undistorted"
-[image2]: ./output_images/03_test_thresh_img_4.png "Binary Image"
-[image3]: ./output_images/02_test_warped_img_4.jpg "Warp Example"
-[image4]: ./histogram.png "Histogram"
-[image5]: ./output_images/04_test_window_img_4.png "Window Example"
-[image6]: ./output_images/05_test_result_img_4.jpg "Output"
+[image0]: ./examples/Undistort_example.png "chessboard"
+[image1]: ./examples/Undistort_example_2.png "Undistorted"
+[image2]: ./examples/threshold_example.png "Binary Image"
+[image3]: ./output_images/02_test_warped_img_0.jpg "Warp Example"
+[image4]: ./examples/histogram.png "Histogram"
+[image5]: ./output_images/04_test_window_img_0.png "Window Example"
+[image6]: ./output_images/05_test_result_img_0.jpg "Output"
 [video1]: ./project_video_output.mp4 "Output Video"
 [image7]: ./camera_cal/calibration1.jpg "Calibration"
-[image8]: ./Rcurve.png "Rcurve Formula"
+[image8]: ./examples/Rcurve.png "Rcurve Formula"
 
 ## Dataset
 
@@ -60,7 +60,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function.
 
 Calibration Image:
-![alt text][image7]
+![alt text][image0]
 
 ### Pipeline (single images)
 
@@ -69,9 +69,6 @@ Calibration Image:
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
 
 Original Image:
-![alt text][image0]
-
-Corrected Image:
 ![alt text][image1]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
