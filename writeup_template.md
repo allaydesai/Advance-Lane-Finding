@@ -75,9 +75,11 @@ Corrected Image:
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in cell 3 function `combined_threshold()`).  Here's an example of my output for this step.  (note: the image below is a result of performing threshold on a warped image of the original Test Image 3 shown above)
+I used a combination of color and gradient thresholds to generate a binary image (thresholding steps in cell 3 function `combined_threshold()`). My process involves applying the sobel operator along the x-axis followed by V and S color channel selection from HSV and HLS color space. Finally I applied magnitued and directionaly thresholding which resulted in the output binary image. 
 
-![alt text][image3]
+Here's an example of my output for this step.  (note: the image below is a result of performing threshold on a warped image of the original Test Image 3 shown above)
+
+![alt text][image2]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -90,11 +92,13 @@ The code for my perspective transform includes a function called `perspective tr
 | 300, 682      | 460, 720      |
 | 700, 682      | 804, 720      |
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
+I verified that my perspective transform was working as expected by looking at the `src` and `dst` points on a test image and its warped counterpart to verify that the lines appear about parallel in the warped image.
 
-![alt text][image4]
+![alt text][image3]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+
+Once I had the warped image, I took a histogram of pixels, and the peaks helped me locate the starting points of lanes. The histogram of one test image can be seen below:
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
 
